@@ -2,7 +2,7 @@
 <div>
   <ul>
     <% @events.each do |event| %>
-      <li><%= event.created_at.strftime("%b %d, %Y") %>: <%= event.name %> <%= number_to_currency(event.amount) %></li>
+      <li><%= event.created_at.strftime("%b %d, %Y") %>: <%= event.name %> <%= number_to_currency(event.amount) %> <%= link_to "Edit", edit_event_path(event.id) %> | <%= link_to "Delete", { action: :destroy, id: event.id }, method: :delete %></li>
     <% end %>
   </ul>
 </div>
