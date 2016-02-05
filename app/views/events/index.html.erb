@@ -1,0 +1,16 @@
+<h1>Savings This Week</h1>
+<div>
+  <ul>
+    <% @events.each do |event| %>
+      <li><%= event.created_at.strftime("%b %d, %Y") %>: <%= event.name %> <%= number_to_currency(event.amount) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <strong>Total: <%= number_to_currency(Event.this_week_total) %></strong>
+</div>
+
+<div>
+  <%= link_to "Add More Savings", new_event_path %>
+</div>
